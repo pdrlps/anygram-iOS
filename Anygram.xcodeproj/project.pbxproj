@@ -19,6 +19,15 @@
 		407D017718ED6F2D00A6FC7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D015F18ED6F2D00A6FC7B /* UIKit.framework */; };
 		407D017F18ED6F2D00A6FC7B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 407D017D18ED6F2D00A6FC7B /* InfoPlist.strings */; };
 		407D018118ED6F2D00A6FC7B /* AnygramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 407D018018ED6F2D00A6FC7B /* AnygramTests.m */; };
+		40CF128C18ED732400D57EBF /* LOPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF127D18ED732400D57EBF /* LOPDetailViewController.m */; };
+		40CF128D18ED732400D57EBF /* LOPDismissDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF127F18ED732400D57EBF /* LOPDismissDetailTransition.m */; };
+		40CF128E18ED732400D57EBF /* LOPMetadataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF128118ED732400D57EBF /* LOPMetadataView.m */; };
+		40CF128F18ED732400D57EBF /* LOPPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF128318ED732400D57EBF /* LOPPhotoCell.m */; };
+		40CF129018ED732400D57EBF /* LOPPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF128518ED732400D57EBF /* LOPPhotoController.m */; };
+		40CF129118ED732400D57EBF /* LOPPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF128718ED732400D57EBF /* LOPPhotosViewController.m */; };
+		40CF129218ED732400D57EBF /* LOPPresentDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF128918ED732400D57EBF /* LOPPresentDetailTransition.m */; };
+		40CF129318ED732400D57EBF /* LOPReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF128B18ED732400D57EBF /* LOPReachability.m */; };
+		F73524E9EA42417A85F80C52 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA3401C6EA74103BCB1A29B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1261934A604D45F19BBA5FAC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		407D015818ED6F2D00A6FC7B /* Anygram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anygram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		407D015B18ED6F2D00A6FC7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		407D015D18ED6F2D00A6FC7B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +58,23 @@
 		407D017C18ED6F2D00A6FC7B /* AnygramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnygramTests-Info.plist"; sourceTree = "<group>"; };
 		407D017E18ED6F2D00A6FC7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		407D018018ED6F2D00A6FC7B /* AnygramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnygramTests.m; sourceTree = "<group>"; };
+		40CF127C18ED732400D57EBF /* LOPDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPDetailViewController.h; sourceTree = "<group>"; };
+		40CF127D18ED732400D57EBF /* LOPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPDetailViewController.m; sourceTree = "<group>"; };
+		40CF127E18ED732400D57EBF /* LOPDismissDetailTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPDismissDetailTransition.h; sourceTree = "<group>"; };
+		40CF127F18ED732400D57EBF /* LOPDismissDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPDismissDetailTransition.m; sourceTree = "<group>"; };
+		40CF128018ED732400D57EBF /* LOPMetadataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPMetadataView.h; sourceTree = "<group>"; };
+		40CF128118ED732400D57EBF /* LOPMetadataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPMetadataView.m; sourceTree = "<group>"; };
+		40CF128218ED732400D57EBF /* LOPPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPPhotoCell.h; sourceTree = "<group>"; };
+		40CF128318ED732400D57EBF /* LOPPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPPhotoCell.m; sourceTree = "<group>"; };
+		40CF128418ED732400D57EBF /* LOPPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPPhotoController.h; sourceTree = "<group>"; };
+		40CF128518ED732400D57EBF /* LOPPhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPPhotoController.m; sourceTree = "<group>"; };
+		40CF128618ED732400D57EBF /* LOPPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPPhotosViewController.h; sourceTree = "<group>"; };
+		40CF128718ED732400D57EBF /* LOPPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPPhotosViewController.m; sourceTree = "<group>"; };
+		40CF128818ED732400D57EBF /* LOPPresentDetailTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPPresentDetailTransition.h; sourceTree = "<group>"; };
+		40CF128918ED732400D57EBF /* LOPPresentDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPPresentDetailTransition.m; sourceTree = "<group>"; };
+		40CF128A18ED732400D57EBF /* LOPReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPReachability.h; sourceTree = "<group>"; };
+		40CF128B18ED732400D57EBF /* LOPReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPReachability.m; sourceTree = "<group>"; };
+		BCA3401C6EA74103BCB1A29B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +85,7 @@
 				407D015E18ED6F2D00A6FC7B /* CoreGraphics.framework in Frameworks */,
 				407D016018ED6F2D00A6FC7B /* UIKit.framework in Frameworks */,
 				407D015C18ED6F2D00A6FC7B /* Foundation.framework in Frameworks */,
+				F73524E9EA42417A85F80C52 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +109,7 @@
 				407D017A18ED6F2D00A6FC7B /* AnygramTests */,
 				407D015A18ED6F2D00A6FC7B /* Frameworks */,
 				407D015918ED6F2D00A6FC7B /* Products */,
+				1261934A604D45F19BBA5FAC /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +129,7 @@
 				407D015D18ED6F2D00A6FC7B /* CoreGraphics.framework */,
 				407D015F18ED6F2D00A6FC7B /* UIKit.framework */,
 				407D017418ED6F2D00A6FC7B /* XCTest.framework */,
+				BCA3401C6EA74103BCB1A29B /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,6 +139,9 @@
 			children = (
 				407D016A18ED6F2D00A6FC7B /* LOPAppDelegate.h */,
 				407D016B18ED6F2D00A6FC7B /* LOPAppDelegate.m */,
+				40CF129418ED733C00D57EBF /* Controllers */,
+				40CF129618ED735300D57EBF /* Helpers */,
+				40CF129518ED734B00D57EBF /* Views */,
 				407D016D18ED6F2D00A6FC7B /* Images.xcassets */,
 				407D016218ED6F2D00A6FC7B /* Supporting Files */,
 			);
@@ -144,6 +177,43 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		40CF129418ED733C00D57EBF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				40CF127C18ED732400D57EBF /* LOPDetailViewController.h */,
+				40CF127D18ED732400D57EBF /* LOPDetailViewController.m */,
+				40CF128418ED732400D57EBF /* LOPPhotoController.h */,
+				40CF128518ED732400D57EBF /* LOPPhotoController.m */,
+				40CF128618ED732400D57EBF /* LOPPhotosViewController.h */,
+				40CF128718ED732400D57EBF /* LOPPhotosViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		40CF129518ED734B00D57EBF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40CF128018ED732400D57EBF /* LOPMetadataView.h */,
+				40CF128118ED732400D57EBF /* LOPMetadataView.m */,
+				40CF128218ED732400D57EBF /* LOPPhotoCell.h */,
+				40CF128318ED732400D57EBF /* LOPPhotoCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		40CF129618ED735300D57EBF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				40CF127E18ED732400D57EBF /* LOPDismissDetailTransition.h */,
+				40CF127F18ED732400D57EBF /* LOPDismissDetailTransition.m */,
+				40CF128818ED732400D57EBF /* LOPPresentDetailTransition.h */,
+				40CF128918ED732400D57EBF /* LOPPresentDetailTransition.m */,
+				40CF128A18ED732400D57EBF /* LOPReachability.h */,
+				40CF128B18ED732400D57EBF /* LOPReachability.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,9 +221,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 407D018418ED6F2D00A6FC7B /* Build configuration list for PBXNativeTarget "Anygram" */;
 			buildPhases = (
+				81C22D06A02B44F7AF1B81AA /* Check Pods Manifest.lock */,
 				407D015418ED6F2D00A6FC7B /* Sources */,
 				407D015518ED6F2D00A6FC7B /* Frameworks */,
 				407D015618ED6F2D00A6FC7B /* Resources */,
+				5C1EBC943783476B90140619 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,6 +264,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Pedro Lopes";
 				TargetAttributes = {
+					407D015718ED6F2D00A6FC7B = {
+						DevelopmentTeam = 98WHGTLA84;
+					};
 					407D017218ED6F2D00A6FC7B = {
 						TestTargetID = 407D015718ED6F2D00A6FC7B;
 					};
@@ -235,13 +310,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5C1EBC943783476B90140619 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81C22D06A02B44F7AF1B81AA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		407D015418ED6F2D00A6FC7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40CF129318ED732400D57EBF /* LOPReachability.m in Sources */,
+				40CF128D18ED732400D57EBF /* LOPDismissDetailTransition.m in Sources */,
 				407D016C18ED6F2D00A6FC7B /* LOPAppDelegate.m in Sources */,
+				40CF129018ED732400D57EBF /* LOPPhotoController.m in Sources */,
+				40CF129118ED732400D57EBF /* LOPPhotosViewController.m in Sources */,
+				40CF128E18ED732400D57EBF /* LOPMetadataView.m in Sources */,
 				407D016818ED6F2D00A6FC7B /* main.m in Sources */,
+				40CF129218ED732400D57EBF /* LOPPresentDetailTransition.m in Sources */,
+				40CF128F18ED732400D57EBF /* LOPPhotoCell.m in Sources */,
+				40CF128C18ED732400D57EBF /* LOPDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,12 +471,15 @@
 		};
 		407D018518ED6F2D00A6FC7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1261934A604D45F19BBA5FAC /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Anygram/Anygram-Prefix.pch";
 				INFOPLIST_FILE = "Anygram/Anygram-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -368,12 +487,15 @@
 		};
 		407D018618ED6F2D00A6FC7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1261934A604D45F19BBA5FAC /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Anygram/Anygram-Prefix.pch";
 				INFOPLIST_FILE = "Anygram/Anygram-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -438,6 +560,7 @@
 				407D018618ED6F2D00A6FC7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		407D018718ED6F2D00A6FC7B /* Build configuration list for PBXNativeTarget "AnygramTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +569,7 @@
 				407D018918ED6F2D00A6FC7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
