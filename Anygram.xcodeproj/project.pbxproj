@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		407D015C18ED6F2D00A6FC7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D015B18ED6F2D00A6FC7B /* Foundation.framework */; };
+		407D015E18ED6F2D00A6FC7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D015D18ED6F2D00A6FC7B /* CoreGraphics.framework */; };
+		407D016018ED6F2D00A6FC7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D015F18ED6F2D00A6FC7B /* UIKit.framework */; };
+		407D016618ED6F2D00A6FC7B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 407D016418ED6F2D00A6FC7B /* InfoPlist.strings */; };
+		407D016818ED6F2D00A6FC7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 407D016718ED6F2D00A6FC7B /* main.m */; };
+		407D016C18ED6F2D00A6FC7B /* LOPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 407D016B18ED6F2D00A6FC7B /* LOPAppDelegate.m */; };
+		407D016E18ED6F2D00A6FC7B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407D016D18ED6F2D00A6FC7B /* Images.xcassets */; };
+		407D017518ED6F2D00A6FC7B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D017418ED6F2D00A6FC7B /* XCTest.framework */; };
+		407D017618ED6F2D00A6FC7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D015B18ED6F2D00A6FC7B /* Foundation.framework */; };
+		407D017718ED6F2D00A6FC7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D015F18ED6F2D00A6FC7B /* UIKit.framework */; };
+		407D017F18ED6F2D00A6FC7B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 407D017D18ED6F2D00A6FC7B /* InfoPlist.strings */; };
+		407D018118ED6F2D00A6FC7B /* AnygramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 407D018018ED6F2D00A6FC7B /* AnygramTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		407D017818ED6F2D00A6FC7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 407D015018ED6F2D00A6FC7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 407D015718ED6F2D00A6FC7B;
+			remoteInfo = Anygram;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		407D015818ED6F2D00A6FC7B /* Anygram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anygram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		407D015B18ED6F2D00A6FC7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		407D015D18ED6F2D00A6FC7B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		407D015F18ED6F2D00A6FC7B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		407D016318ED6F2D00A6FC7B /* Anygram-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Anygram-Info.plist"; sourceTree = "<group>"; };
+		407D016518ED6F2D00A6FC7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		407D016718ED6F2D00A6FC7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		407D016918ED6F2D00A6FC7B /* Anygram-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Anygram-Prefix.pch"; sourceTree = "<group>"; };
+		407D016A18ED6F2D00A6FC7B /* LOPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LOPAppDelegate.h; sourceTree = "<group>"; };
+		407D016B18ED6F2D00A6FC7B /* LOPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LOPAppDelegate.m; sourceTree = "<group>"; };
+		407D016D18ED6F2D00A6FC7B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		407D017318ED6F2D00A6FC7B /* AnygramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnygramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		407D017418ED6F2D00A6FC7B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		407D017C18ED6F2D00A6FC7B /* AnygramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnygramTests-Info.plist"; sourceTree = "<group>"; };
+		407D017E18ED6F2D00A6FC7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		407D018018ED6F2D00A6FC7B /* AnygramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnygramTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		407D015518ED6F2D00A6FC7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407D015E18ED6F2D00A6FC7B /* CoreGraphics.framework in Frameworks */,
+				407D016018ED6F2D00A6FC7B /* UIKit.framework in Frameworks */,
+				407D015C18ED6F2D00A6FC7B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407D017018ED6F2D00A6FC7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407D017518ED6F2D00A6FC7B /* XCTest.framework in Frameworks */,
+				407D017718ED6F2D00A6FC7B /* UIKit.framework in Frameworks */,
+				407D017618ED6F2D00A6FC7B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		407D014F18ED6F2D00A6FC7B = {
+			isa = PBXGroup;
+			children = (
+				407D016118ED6F2D00A6FC7B /* Anygram */,
+				407D017A18ED6F2D00A6FC7B /* AnygramTests */,
+				407D015A18ED6F2D00A6FC7B /* Frameworks */,
+				407D015918ED6F2D00A6FC7B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		407D015918ED6F2D00A6FC7B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				407D015818ED6F2D00A6FC7B /* Anygram.app */,
+				407D017318ED6F2D00A6FC7B /* AnygramTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		407D015A18ED6F2D00A6FC7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				407D015B18ED6F2D00A6FC7B /* Foundation.framework */,
+				407D015D18ED6F2D00A6FC7B /* CoreGraphics.framework */,
+				407D015F18ED6F2D00A6FC7B /* UIKit.framework */,
+				407D017418ED6F2D00A6FC7B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		407D016118ED6F2D00A6FC7B /* Anygram */ = {
+			isa = PBXGroup;
+			children = (
+				407D016A18ED6F2D00A6FC7B /* LOPAppDelegate.h */,
+				407D016B18ED6F2D00A6FC7B /* LOPAppDelegate.m */,
+				407D016D18ED6F2D00A6FC7B /* Images.xcassets */,
+				407D016218ED6F2D00A6FC7B /* Supporting Files */,
+			);
+			path = Anygram;
+			sourceTree = "<group>";
+		};
+		407D016218ED6F2D00A6FC7B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				407D016318ED6F2D00A6FC7B /* Anygram-Info.plist */,
+				407D016418ED6F2D00A6FC7B /* InfoPlist.strings */,
+				407D016718ED6F2D00A6FC7B /* main.m */,
+				407D016918ED6F2D00A6FC7B /* Anygram-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		407D017A18ED6F2D00A6FC7B /* AnygramTests */ = {
+			isa = PBXGroup;
+			children = (
+				407D018018ED6F2D00A6FC7B /* AnygramTests.m */,
+				407D017B18ED6F2D00A6FC7B /* Supporting Files */,
+			);
+			path = AnygramTests;
+			sourceTree = "<group>";
+		};
+		407D017B18ED6F2D00A6FC7B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				407D017C18ED6F2D00A6FC7B /* AnygramTests-Info.plist */,
+				407D017D18ED6F2D00A6FC7B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		407D015718ED6F2D00A6FC7B /* Anygram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 407D018418ED6F2D00A6FC7B /* Build configuration list for PBXNativeTarget "Anygram" */;
+			buildPhases = (
+				407D015418ED6F2D00A6FC7B /* Sources */,
+				407D015518ED6F2D00A6FC7B /* Frameworks */,
+				407D015618ED6F2D00A6FC7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Anygram;
+			productName = Anygram;
+			productReference = 407D015818ED6F2D00A6FC7B /* Anygram.app */;
+			productType = "com.apple.product-type.application";
+		};
+		407D017218ED6F2D00A6FC7B /* AnygramTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 407D018718ED6F2D00A6FC7B /* Build configuration list for PBXNativeTarget "AnygramTests" */;
+			buildPhases = (
+				407D016F18ED6F2D00A6FC7B /* Sources */,
+				407D017018ED6F2D00A6FC7B /* Frameworks */,
+				407D017118ED6F2D00A6FC7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				407D017918ED6F2D00A6FC7B /* PBXTargetDependency */,
+			);
+			name = AnygramTests;
+			productName = AnygramTests;
+			productReference = 407D017318ED6F2D00A6FC7B /* AnygramTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		407D015018ED6F2D00A6FC7B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LOP;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Pedro Lopes";
+				TargetAttributes = {
+					407D017218ED6F2D00A6FC7B = {
+						TestTargetID = 407D015718ED6F2D00A6FC7B;
+					};
+				};
+			};
+			buildConfigurationList = 407D015318ED6F2D00A6FC7B /* Build configuration list for PBXProject "Anygram" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 407D014F18ED6F2D00A6FC7B;
+			productRefGroup = 407D015918ED6F2D00A6FC7B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				407D015718ED6F2D00A6FC7B /* Anygram */,
+				407D017218ED6F2D00A6FC7B /* AnygramTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		407D015618ED6F2D00A6FC7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407D016618ED6F2D00A6FC7B /* InfoPlist.strings in Resources */,
+				407D016E18ED6F2D00A6FC7B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407D017118ED6F2D00A6FC7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407D017F18ED6F2D00A6FC7B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		407D015418ED6F2D00A6FC7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407D016C18ED6F2D00A6FC7B /* LOPAppDelegate.m in Sources */,
+				407D016818ED6F2D00A6FC7B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407D016F18ED6F2D00A6FC7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407D018118ED6F2D00A6FC7B /* AnygramTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		407D017918ED6F2D00A6FC7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 407D015718ED6F2D00A6FC7B /* Anygram */;
+			targetProxy = 407D017818ED6F2D00A6FC7B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		407D016418ED6F2D00A6FC7B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				407D016518ED6F2D00A6FC7B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		407D017D18ED6F2D00A6FC7B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				407D017E18ED6F2D00A6FC7B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		407D018218ED6F2D00A6FC7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		407D018318ED6F2D00A6FC7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		407D018518ED6F2D00A6FC7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Anygram/Anygram-Prefix.pch";
+				INFOPLIST_FILE = "Anygram/Anygram-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		407D018618ED6F2D00A6FC7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Anygram/Anygram-Prefix.pch";
+				INFOPLIST_FILE = "Anygram/Anygram-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		407D018818ED6F2D00A6FC7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Anygram.app/Anygram";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Anygram/Anygram-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AnygramTests/AnygramTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		407D018918ED6F2D00A6FC7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Anygram.app/Anygram";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Anygram/Anygram-Prefix.pch";
+				INFOPLIST_FILE = "AnygramTests/AnygramTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		407D015318ED6F2D00A6FC7B /* Build configuration list for PBXProject "Anygram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407D018218ED6F2D00A6FC7B /* Debug */,
+				407D018318ED6F2D00A6FC7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		407D018418ED6F2D00A6FC7B /* Build configuration list for PBXNativeTarget "Anygram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407D018518ED6F2D00A6FC7B /* Debug */,
+				407D018618ED6F2D00A6FC7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		407D018718ED6F2D00A6FC7B /* Build configuration list for PBXNativeTarget "AnygramTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407D018818ED6F2D00A6FC7B /* Debug */,
+				407D018918ED6F2D00A6FC7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 407D015018ED6F2D00A6FC7B /* Project object */;
+}
