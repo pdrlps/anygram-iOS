@@ -37,54 +37,55 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // load last search from cache
     self.searchToken = [[SAMCache sharedCache] objectForKey:@"searchToken"];
     if (self.searchToken == nil) {
-        self.searchToken = @"infinity";
+        self.searchToken = [[NSMutableString alloc] initWithString:@"infinity"];
     }
     
-    // text field on top
-    self.search = [[UITextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 30.0)];
+    // search field on top
+    self.search = [[UITextField alloc] initWithFrame:CGRectMake(16.0, 0, 230, 30)];
+    [self.search setReturnKeyType:UIReturnKeyGo];
+    
     [self.search setBorderStyle:UITextBorderStyleNone];
     self.search.tintColor = [UIColor colorWithRed:0.0f green:76.0f/255 blue:147.0f/255 alpha:1];
     self.search.delegate = self;
+    self.search.font = [UIFont fontWithName:@"Avenir-Light" size:14.0f];
     self.search.layer.cornerRadius = 4.0f;
     self.search.layer.masksToBounds = YES;
-
+    self.search.placeholder = @"Search anything!";
     self.search.textColor = [UIColor whiteColor];
     self.search.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.1];
-
+    self.search.clearButtonMode = UITextFieldViewModeUnlessEditing;
     self.navigationItem.titleView = self.search;
     
     // right navigation starts new search
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"shuffle"] style:UIBarButtonItemStylePlain target:self action:@selector(searchForToken)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     
-    // left navigation signs out / changes user
+    // customize collection view
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerClass:[LOPPhotoCell class] forCellWithReuseIdentifier:@"photo"];
     
     // refresh on pull down
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.tintColor = [UIColor colorWithRed:0.49 green:0.78 blue:0.69 alpha:1];
+    self.refreshControl.tintColor = [UIColor colorWithRed:0.0f green:112.0f/255 blue:213.0f/255 alpha:1];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:self.refreshControl];
     self.collectionView.alwaysBounceVertical = YES;
     
-    self.accessToken = [SSKeychain passwordForService:@"instagram" account:@"user"];
+    // load Instagram data
+    self.accessToken = [SSKeychain passwordForService:@"instagram" account:@"anygram"];
     if(self.accessToken == nil ) {
         [SimpleAuth authorize:@"instagram" options:@{@"scope":@[@"likes"]} completion:^(NSDictionary *responseObject, NSError *error) {
             self.accessToken = responseObject[@"credentials"][@"token"];
             [SSKeychain setPassword:self.accessToken forService:@"instagram" account:@"anygram"];
-            [self showSignOutButton];
             [self refresh];
         }];
-        
     } else {
-        [self showSignOutButton];
         [self refresh];
     }
-    [self.search becomeFirstResponder];
-    
 }
 
 # pragma mark - UICollectionViewController
@@ -116,6 +117,10 @@
     [self presentViewController:detailView animated:YES completion:nil];
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.search resignFirstResponder];
+}
+
 # pragma mark - UIViewControllerTransitioningDelegate
 -(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
     return [[LOPPresentDetailTransition alloc] init];
@@ -138,7 +143,7 @@
     }];
 }
 
-# pragma mark - UITextFieldDelegate 
+# pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField.text.length) {
         [self searchForToken];
@@ -148,11 +153,10 @@
     return NO;
 }
 
-
 # pragma mark - Actions
 -(void)searchForToken {
     
-    self.searchToken = [self.search.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    self.searchToken = [[NSMutableString alloc] initWithString:[self.search.text stringByReplacingOccurrencesOfString:@" " withString:@""]];
     [[SAMCache sharedCache] setObject:self.searchToken forKey:@"searchToken"];
     
     [self refresh];
@@ -175,7 +179,7 @@
             NSData *data = [[NSData alloc] initWithContentsOfURL:location];
             NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
             self.photos = [responseDictionary valueForKeyPath:@"data"];
-            
+
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.collectionView reloadData];
                 [self.refreshControl endRefreshing];
@@ -192,64 +196,6 @@
     }
 }
 
-/*
- *  Redirects to Instagram or shows system Camera
- */
--(void)showCamera {
-    NSURL *instagramURL = [NSURL URLWithString:@"instagram://camera"];
-    if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
-        [[UIApplication sharedApplication] openURL:instagramURL];
-    } else {
-        UIImagePickerController * picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-        
-        [self presentViewController:picker animated:YES completion:nil];
-    }
-}
-
-/*
- *  User sign out (remove from keychain)
- */
--(void)signOut {
-    [SSKeychain deletePasswordForService:@"instagram" account:@"user"];
-    self.accessToken = nil;
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Signed out!" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-    [alert show];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.photos = nil;
-        [self.collectionView reloadData];
-        [self showSignInButton];
-        [alert dismissWithClickedButtonIndex:0 animated:YES];
-    });
-}
-
--(void)signIn {
-    if(self.accessToken == nil ) {
-        [SimpleAuth authorize:@"instagram" options:@{@"scope":@[@"likes"]} completion:^(NSDictionary *responseObject, NSError *error) {
-            self.accessToken = responseObject[@"credentials"][@"token"];
-            [SSKeychain setPassword:self.accessToken forService:@"instagram" account:@"anygram"];
-            [self showSignOutButton];
-            [self refresh];
-        }];
-        
-    } else {
-        [self refresh];
-    }
-
-}
-
--(void)showSignInButton {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"signin"] style:UIBarButtonItemStylePlain target:self action:@selector(signIn)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
-}
-
--(void)showSignOutButton {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"signout"] style:UIBarButtonItemStylePlain target:self action:@selector(signOut)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
-}
 
 /**
  *  Check if there's an internet connection available.

@@ -8,7 +8,7 @@
 
 #import "LOPAppDelegate.h"
 #import "LOPPhotosViewController.h"
-
+#import <Crashlytics/Crashlytics.h>
 #import <SimpleAuth/SimpleAuth.h>
 
 @implementation LOPAppDelegate
@@ -19,6 +19,8 @@
                                                @"client_id" : @"573f05620ebf4e038c65c40f0d77c240",
                                                SimpleAuthRedirectURIKey : @"anygram://auth/instagram"
                                                };
+    
+    [Crashlytics startWithAPIKey:@"23fc3a72601974bf2932492e8609d82c6ca052fc"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.

@@ -37,7 +37,9 @@
     self.imageView  = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, -320.0, 320.0, 320.0)];
     [LOPPhotoController imageForPhoto:self.photo size:@"standard_resolution" completion:^(UIImage *image) {
         self.imageView.image = image;
+        self.metadataView.image = image;
     }];
+
     [self.view addSubview:self.imageView];
     
     // dismiss gestures (tap + swipes)

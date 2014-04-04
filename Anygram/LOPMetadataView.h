@@ -16,5 +16,6 @@
 
 @property (nonatomic) NSDictionary *photo;
 @property (nonatomic) UIViewController *controller;
+@property (nonatomic) UIImage *image;
 
 @end

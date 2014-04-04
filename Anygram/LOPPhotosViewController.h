@@ -16,7 +16,7 @@
 #import <SSKeychain/SSKeychainQuery.h>
 #import <SAMCache/SAMCache.h>
 
-@interface LOPPhotosViewController : UICollectionViewController <UIViewControllerTransitioningDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
+@interface LOPPhotosViewController : UICollectionViewController <UIViewControllerTransitioningDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIScrollViewDelegate>
 
 @property (nonatomic) NSString *accessToken;
 @property (nonatomic) NSMutableString *searchToken;

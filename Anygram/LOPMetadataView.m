@@ -16,16 +16,19 @@
 @property (nonatomic) UIButton *likesButton;
 @property (nonatomic) UIButton *commentsButton;
 
+
 @end
 
 @implementation LOPMetadataView
 
 # pragma mark - Accessors
 
+-(void)setImage:(UIImage *)image {
+    _image = image;
+}
+
 - (void)setPhoto:(NSDictionary *)photo {
 	_photo = photo;
-    
-    // TODO: Set the avatar, username, share, number of likes, and number of comments
     
     // likes
     NSString *likes = [[NSString alloc] initWithFormat:@"%@",[self.photo valueForKeyPath:@"likes.count"]];
@@ -84,7 +87,9 @@
 
 -(void)share:(id)sender {
     NSMutableArray *sharingItems = [NSMutableArray new];
-    NSString *shareText = [[NSString alloc] initWithFormat:@"%@ #selfix #selfie",self.photo[@"link"] ];
+    NSString *shareText = [[NSString alloc] initWithFormat:@"%@ via #anygram http://pedrolopes.net/anygram/",self.photo[@"link"] ];
+    UIImage *shareImage = self.image;
+        [sharingItems addObject:shareImage];
     [sharingItems addObject:shareText];
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
     [self.controller presentViewController:activityController animated:YES completion:nil];
@@ -97,7 +102,7 @@
 -(void)like:(id)sender {
     NSLog(@"Link: %@", self.photo[@"link"]);
     NSURLSession *session = [NSURLSession sharedSession];
-    NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/media/%@/likes?access_token=%@", self.photo[@"id"], [SSKeychain passwordForService:@"instagram" account:@"user"]];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/media/%@/likes?access_token=%@", self.photo[@"id"], [SSKeychain passwordForService:@"instagram" account:@"anygram"]];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -168,7 +173,7 @@
 - (UIButton *)usernameButton {
     if (!_usernameButton) {
         _usernameButton = [[UIButton alloc] initWithFrame:CGRectMake(47.0f, 0.0f, 200.0f, 32.0f)];
-        _usernameButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0f];
+        _usernameButton.titleLabel.font = [UIFont fontWithName:@"Avenir-Light" size:14.0f];
         _usernameButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         
         UIColor *textColor = [[self class] lightTextColor];
@@ -197,7 +202,7 @@
 - (UIButton *)likesButton {
     if (!_likesButton) {
         _likesButton = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, 350.0f, 64.0f, 64.0f)];
-        _likesButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0f];
+        _likesButton.titleLabel.font = [UIFont fontWithName:@"Avenir-Light" size:14.0f];
         [_likesButton setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
         _likesButton.adjustsImageWhenHighlighted = NO;
         _likesButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -215,7 +220,7 @@
 - (UIButton *)commentsButton {
     if (!_commentsButton) {
         _commentsButton = [[UIButton alloc] initWithFrame:CGRectMake(240.0f, 350.0f, 64.0f, 64.0f)];
-        _commentsButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0f];
+        _commentsButton.titleLabel.font = [UIFont fontWithName:@"Avenir-Light" size:14.0f];
         [_commentsButton setImage:[UIImage imageNamed:@"comment"] forState:UIControlStateNormal];
         _commentsButton.adjustsImageWhenHighlighted = NO;
         _commentsButton.imageEdgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
@@ -232,12 +237,12 @@
 #pragma mark - Private
 
 + (UIColor *)darkTextColor {
-    return [UIColor colorWithRed:0.24 green:0.72 blue:0.69 alpha:1];
+    return [UIColor whiteColor];
 }
 
 
 + (UIColor *)lightTextColor {
-    return [UIColor colorWithRed:0.49 green:0.78 blue:0.69 alpha:1];
+    return [UIColor whiteColor];
 }
 
 
