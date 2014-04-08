@@ -153,6 +153,11 @@
     return NO;
 }
 
+# pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    [self.search becomeFirstResponder];
+}
+
 # pragma mark - Actions
 -(void)searchForToken {
     
@@ -177,21 +182,34 @@
         NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
         NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
             NSData *data = [[NSData alloc] initWithContentsOfURL:location];
-            NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            self.photos = [responseDictionary valueForKeyPath:@"data"];
+            if(data.length > 0) {
+                NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                self.photos = [responseDictionary valueForKeyPath:@"data"];
 
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self.refreshControl endRefreshing];
+                    self.loading = NO;
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh ho!" message:@"Sorry! Something's wrong and we can't get pictures from Instagram..." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+                    [alert show];
+                });
+              
+            }
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.collectionView reloadData];
                 [self.refreshControl endRefreshing];
                 self.loading = NO;
             });
+            
         }];
         
         [task resume];
     }
     // no internet!
     else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet!" message:@"Check your Internet connection, you need an Internet connection to use Anygram!" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet!" message:@"Please check your Internet connection, you need an Internet connection to use Anygram!" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
         [alert show];
     }
 }
