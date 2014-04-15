@@ -21,6 +21,16 @@
 
 
 - (NSURLRequest *)initialRequest {
+    // fix for WebView cache
+    [[NSURLCache sharedURLCache] setDiskCapacity:0];
+    [[NSURLCache sharedURLCache] setMemoryCapacity:0];
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies]) {
+        [storage deleteCookie:cookie];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     parameters[@"client_id"] = self.options[@"client_id"];
     parameters[@"redirect_uri"] = self.options[SimpleAuthRedirectURIKey];

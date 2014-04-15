@@ -100,7 +100,7 @@
  * Like tapped photo on Instagram
  */
 -(void)like:(id)sender {
-    NSLog(@"Link: %@", self.photo[@"link"]);
+
     NSURLSession *session = [NSURLSession sharedSession];
     NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/media/%@/likes?access_token=%@", self.photo[@"id"], [SSKeychain passwordForService:@"instagram" account:@"anygram"]];
     NSURL *url = [[NSURL alloc] initWithString:urlString];

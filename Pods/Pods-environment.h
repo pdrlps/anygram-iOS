@@ -9,8 +9,14 @@
 // CMDQueryStringSerialization
 #define COCOAPODS_POD_AVAILABLE_CMDQueryStringSerialization
 #define COCOAPODS_VERSION_MAJOR_CMDQueryStringSerialization 0
-#define COCOAPODS_VERSION_MINOR_CMDQueryStringSerialization 1
+#define COCOAPODS_VERSION_MINOR_CMDQueryStringSerialization 2
 #define COCOAPODS_VERSION_PATCH_CMDQueryStringSerialization 0
+
+// MGInstagram
+#define COCOAPODS_POD_AVAILABLE_MGInstagram
+#define COCOAPODS_VERSION_MAJOR_MGInstagram 0
+#define COCOAPODS_VERSION_MINOR_MGInstagram 0
+#define COCOAPODS_VERSION_PATCH_MGInstagram 2
 
 // ReactiveCocoa
 #define COCOAPODS_POD_AVAILABLE_ReactiveCocoa

@@ -15,8 +15,9 @@
 #import <SSKeychain/SSKeychain.h>
 #import <SSKeychain/SSKeychainQuery.h>
 #import <SAMCache/SAMCache.h>
+#import "MGInstagram.h"
 
-@interface LOPPhotosViewController : UICollectionViewController <UIViewControllerTransitioningDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIScrollViewDelegate, UIAlertViewDelegate>
+@interface LOPPhotosViewController : UICollectionViewController <UIViewControllerTransitioningDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIScrollViewDelegate, UIAlertViewDelegate,UIImagePickerControllerDelegate>
 
 @property (nonatomic) NSString *accessToken;
 @property (nonatomic) NSMutableString *searchToken;

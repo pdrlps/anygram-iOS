@@ -19,12 +19,12 @@
 		407D017718ED6F2D00A6FC7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D015F18ED6F2D00A6FC7B /* UIKit.framework */; };
 		407D017F18ED6F2D00A6FC7B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 407D017D18ED6F2D00A6FC7B /* InfoPlist.strings */; };
 		407D018118ED6F2D00A6FC7B /* AnygramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 407D018018ED6F2D00A6FC7B /* AnygramTests.m */; };
+		4096351018FDA3360025D28B /* LOPPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4096350F18FDA3360025D28B /* LOPPhotosViewController.m */; };
 		40CF128C18ED732400D57EBF /* LOPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF127D18ED732400D57EBF /* LOPDetailViewController.m */; };
 		40CF128D18ED732400D57EBF /* LOPDismissDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF127F18ED732400D57EBF /* LOPDismissDetailTransition.m */; };
 		40CF128E18ED732400D57EBF /* LOPMetadataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF128118ED732400D57EBF /* LOPMetadataView.m */; };
 		40CF128F18ED732400D57EBF /* LOPPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF128318ED732400D57EBF /* LOPPhotoCell.m */; };
 		40CF129018ED732400D57EBF /* LOPPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF128518ED732400D57EBF /* LOPPhotoController.m */; };
-		40CF129118ED732400D57EBF /* LOPPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF128718ED732400D57EBF /* LOPPhotosViewController.m */; };
 		40CF129218ED732400D57EBF /* LOPPresentDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF128918ED732400D57EBF /* LOPPresentDetailTransition.m */; };
 		40CF129318ED732400D57EBF /* LOPReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CF128B18ED732400D57EBF /* LOPReachability.m */; };
 		40CF129918EEF2FB00D57EBF /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CF129818EEF2FB00D57EBF /* Crashlytics.framework */; };
@@ -59,6 +59,7 @@
 		407D017C18ED6F2D00A6FC7B /* AnygramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnygramTests-Info.plist"; sourceTree = "<group>"; };
 		407D017E18ED6F2D00A6FC7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		407D018018ED6F2D00A6FC7B /* AnygramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnygramTests.m; sourceTree = "<group>"; };
+		4096350F18FDA3360025D28B /* LOPPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPPhotosViewController.m; sourceTree = "<group>"; };
 		40CF127C18ED732400D57EBF /* LOPDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPDetailViewController.h; sourceTree = "<group>"; };
 		40CF127D18ED732400D57EBF /* LOPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPDetailViewController.m; sourceTree = "<group>"; };
 		40CF127E18ED732400D57EBF /* LOPDismissDetailTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPDismissDetailTransition.h; sourceTree = "<group>"; };
@@ -70,7 +71,6 @@
 		40CF128418ED732400D57EBF /* LOPPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPPhotoController.h; sourceTree = "<group>"; };
 		40CF128518ED732400D57EBF /* LOPPhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPPhotoController.m; sourceTree = "<group>"; };
 		40CF128618ED732400D57EBF /* LOPPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPPhotosViewController.h; sourceTree = "<group>"; };
-		40CF128718ED732400D57EBF /* LOPPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPPhotosViewController.m; sourceTree = "<group>"; };
 		40CF128818ED732400D57EBF /* LOPPresentDetailTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPPresentDetailTransition.h; sourceTree = "<group>"; };
 		40CF128918ED732400D57EBF /* LOPPresentDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOPPresentDetailTransition.m; sourceTree = "<group>"; };
 		40CF128A18ED732400D57EBF /* LOPReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOPReachability.h; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 				40CF128418ED732400D57EBF /* LOPPhotoController.h */,
 				40CF128518ED732400D57EBF /* LOPPhotoController.m */,
 				40CF128618ED732400D57EBF /* LOPPhotosViewController.h */,
-				40CF128718ED732400D57EBF /* LOPPhotosViewController.m */,
+				4096350F18FDA3360025D28B /* LOPPhotosViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -370,10 +370,10 @@
 				40CF128D18ED732400D57EBF /* LOPDismissDetailTransition.m in Sources */,
 				407D016C18ED6F2D00A6FC7B /* LOPAppDelegate.m in Sources */,
 				40CF129018ED732400D57EBF /* LOPPhotoController.m in Sources */,
-				40CF129118ED732400D57EBF /* LOPPhotosViewController.m in Sources */,
 				40CF128E18ED732400D57EBF /* LOPMetadataView.m in Sources */,
 				407D016818ED6F2D00A6FC7B /* main.m in Sources */,
 				40CF129218ED732400D57EBF /* LOPPresentDetailTransition.m in Sources */,
+				4096351018FDA3360025D28B /* LOPPhotosViewController.m in Sources */,
 				40CF128F18ED732400D57EBF /* LOPPhotoCell.m in Sources */,
 				40CF128C18ED732400D57EBF /* LOPDetailViewController.m in Sources */,
 			);
