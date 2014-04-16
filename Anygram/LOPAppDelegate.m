@@ -15,27 +15,31 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // setup Instagram API authentication
     SimpleAuth.configuration[@"instagram"] = @{
                                                @"client_id" : @"573f05620ebf4e038c65c40f0d77c240",
                                                SimpleAuthRedirectURIKey : @"anygram://auth/instagram"
                                                };
     
+    // setup Crashlytics API
     [Crashlytics startWithAPIKey:@"23fc3a72601974bf2932492e8609d82c6ca052fc"];
     
+    // full window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+
     
     // configure root and photos view controllers
     LOPPhotosViewController *photosViewController = [[LOPPhotosViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:photosViewController];
     self.window.rootViewController = navigationController;
     
-    // configure top navigation bar
+    // customize top navigation bar
     UINavigationBar *navBar = navigationController.navigationBar;
     navBar.barTintColor = [UIColor colorWithRed:0.0f green:112.0f/255 blue:213.0f/255 alpha:1];
     navBar.barStyle = UIBarStyleBlackOpaque;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

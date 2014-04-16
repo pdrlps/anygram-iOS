@@ -11,9 +11,11 @@
 @implementation LOPDismissDetailTransition
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+    
     UIViewController *detail = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
     [UIView animateWithDuration:0.5 animations:^{
+        // end transition with from at full transparency
         detail.view.alpha = 0.0;
     } completion:^(BOOL finished) {
         [detail.view removeFromSuperview];

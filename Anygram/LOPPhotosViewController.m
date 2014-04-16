@@ -24,7 +24,6 @@
 -(instancetype)init {
     // start layout and set properties
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    
     layout.itemSize = CGSizeMake(106.0f, 106.0f);
     layout.minimumInteritemSpacing = 1.0;
     layout.minimumLineSpacing = 1.0;
@@ -39,15 +38,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Anygram";
     
     // register DidBecomeActive (reload content)
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refresh) name:UIApplicationDidBecomeActiveNotification object:nil];
-   
     
+    // refresh on pull down
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.tintColor = [UIColor colorWithRed:0.0f green:112.0f/255 blue:213.0f/255 alpha:1];
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:self.refreshControl];
+    self.collectionView.alwaysBounceVertical = YES;
+    
+    // setup & customize search field
     self.search = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 320, 36)];
     [self.search setReturnKeyType:UIReturnKeyGo];
-    
     [self.search setBorderStyle:UITextBorderStyleNone];
     self.search.tintColor = [UIColor colorWithRed:0.0f green:76.0f/255 blue:147.0f/255 alpha:1];
     self.search.delegate = self;
@@ -59,42 +63,30 @@
     self.search.backgroundColor =  [UIColor whiteColor];
     self.search.clearButtonMode = UITextFieldViewModeUnlessEditing;
     
-    // set search field
     
-    // set title image
+    // set title image for navbar
     UIButton *titleButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64.0, 64.0)];
     [titleButton setImage:[UIImage imageNamed:@"shuffle"] forState:UIControlStateNormal];
     [titleButton addTarget:self action:@selector(searchForToken) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleButton;
-//    [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shuffle"]];
     
     // right navigation shows camera
-    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera"] style:UIBarButtonItemStylePlain target:self action:@selector(showCamera)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Camera" style:UIBarButtonItemStylePlain target:self action:@selector(showCamera)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                                    [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                                     [UIColor whiteColor], NSForegroundColorAttributeName,
                                                                      [UIFont fontWithName:@"Avenir-Light" size:14.0f], NSFontAttributeName,nil] forState:UIControlStateNormal];
-  
     
     // customize collection view
     [self.collectionView addSubview:self.search];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerClass:[LOPPhotoCell class] forCellWithReuseIdentifier:@"photo"];
     
-    // refresh on pull down
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.tintColor = [UIColor colorWithRed:0.0f green:112.0f/255 blue:213.0f/255 alpha:1];
-    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    [self.collectionView addSubview:self.refreshControl];
-    self.collectionView.alwaysBounceVertical = YES;
-    
     // load Instagram data
     self.accessToken = [SSKeychain passwordForService:@"instagram" account:@"anygram"];
     if(self.accessToken == nil ) {
         // no previous account, authorize
         [SimpleAuth authorize:@"instagram" options:@{@"scope":@[@"likes"]} completion:^(NSDictionary *responseObject, NSError *error) {
-            
             if (error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials error!" message:@"Sorry! There was a problem with your Instagram credentials! Please try again!" delegate:nil cancelButtonTitle:@"Try again!" otherButtonTitles:nil];
@@ -186,24 +178,17 @@
 
 # pragma mark - UIImagePickerController
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    // load image from picker
+    // load image from picker and move to sharing object
     UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    NSMutableArray *sharingItems = [NSMutableArray new];
+    NSString *shareText = @"via #anygram http://pedrolopes.net/anygram/";
+    [sharingItems addObject:shareText];
+    [sharingItems addObject:image];
     
-    // dismiss picker
+    // dismiss picker and show share sheet
     [picker dismissViewControllerAnimated:YES completion:^{
-        if ([MGInstagram isAppInstalled]) {
-            [MGInstagram postImage:image inView:self.view];
-        }
-        else
-        {
-            NSMutableArray *sharingItems = [NSMutableArray new];
-            NSString *shareText = @"via #selfix #selfie http://pedrolopes.net/selfix/";
-            [sharingItems addObject:shareText];
-            [sharingItems addObject:image];
-            UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
-            [self presentViewController:activityController animated:YES completion:nil];
-            
-        }
+        UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+        [self presentViewController:activityController animated:YES completion:nil];
     }];
 }
 
@@ -240,7 +225,7 @@
             if(data.length > 0) {
                 NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
                 self.photos = [responseDictionary valueForKeyPath:@"data"];
-
+                
             } else {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
@@ -249,10 +234,10 @@
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Instagram error!" message:@"Sorry! There's something wrong with Instagram and we can't load picture pictures... Please try again!" delegate:self cancelButtonTitle:@"Try again" otherButtonTitles:nil];
                     [alert show];
                 });
-              
+                
             }
             
-             // finish by async reloading the collection view
+            // finish by async reloading the collection view
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.collectionView reloadData];
                 [self.refreshControl endRefreshing];
@@ -271,16 +256,18 @@
 }
 
 /*
- *  Shows system Camera.
+ *  Shows Instagram (if available) or system Camera.
  */
 -(void)showCamera {
-    
-    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-    
-    [self presentViewController:picker animated:YES completion:nil];
+    if ([MGInstagram isAppInstalled]) {
+        [[UIApplication sharedApplication] openURL:[[NSURL alloc] initWithString:@"instagram://camera"]];
+    } else {
+        UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+        [self presentViewController:picker animated:YES completion:nil];
+    }
 }
 
 /*

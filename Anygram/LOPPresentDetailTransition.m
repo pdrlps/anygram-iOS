@@ -11,17 +11,20 @@
 @implementation LOPPresentDetailTransition
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    UIViewController *detail = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
+    UIViewController *detail = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *containerView = [transitionContext containerView];
     
+    // start transition is transparent
     detail.view.alpha = 0.0f;
-    CGRect frame = containerView.bounds;
     
+    CGRect frame = containerView.bounds;
     detail.view.frame = frame;
+    
     [containerView addSubview:detail.view];
     
     [UIView animateWithDuration:0.5 animations:^{
+        // end transition is full view
         detail.view.alpha = 1.0;
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:YES];

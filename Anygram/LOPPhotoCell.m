@@ -13,8 +13,8 @@
 @synthesize photo = _photo;
 
 # pragma mark - Accessors
+
 -(void)setPhoto:(NSDictionary *)photo {
-  
         _photo = photo;
         
         [LOPPhotoController imageForPhoto:_photo size:@"thumbnail" completion:^(UIImage *image) {
@@ -31,9 +31,9 @@
     if (self) {
         self.imageView = [[UIImageView alloc] init];
         
+        // double tap to like
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(like)];
-        tap.numberOfTapsRequired = 2;
-        
+        tap.numberOfTapsRequired = 2;        
         [self addGestureRecognizer:tap];
         
         [self.contentView addSubview:self.imageView];
@@ -50,7 +50,7 @@
 # pragma mark - Actions
 
 /**
- * Like tapped photo on Instagram
+ *  Like tapped photo on Instagram.
  */
 -(void)like {
     NSLog(@"Link: %@", self.photo[@"link"]);
@@ -70,6 +70,9 @@
     [task resume];    
 }
 
+/**
+ *  Display (and auto dismiss) UIAlertView.
+ */
 -(void)showLikeCompletion {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Liked!" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
     [alert show];

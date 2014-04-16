@@ -16,7 +16,6 @@
 @property (nonatomic) UIButton *likesButton;
 @property (nonatomic) UIButton *commentsButton;
 
-
 @end
 
 @implementation LOPMetadataView
@@ -65,7 +64,11 @@
 }
 
 #pragma mark - Actions
-
+/**
+ *  Open user on tap on Instagram (if available) or web.
+ *
+ *  @param sender tapped button (user icon or username).
+ */
 - (void)openUser:(id)sender {
     NSURL *instagramUrl = [[NSURL alloc] initWithString:[[NSString alloc] initWithFormat:@"instagram://user?username=%@",[self.photo valueForKeyPath:@"user.username"]]];
     if ([[UIApplication sharedApplication] canOpenURL:instagramUrl]) {
@@ -75,7 +78,11 @@
     }
 }
 
-
+/**
+ *  Open photo on tap on Instagram (if available) or web.
+ *
+ *  @param sender tapped button (comment button)
+ */
 - (void)openPhoto:(id)sender {
     NSURL *instagramUrl = [[NSURL alloc] initWithString:[[NSString alloc] initWithFormat:@"instagram://media?id=%@",[self.photo valueForKeyPath:@"id"]]];
     if ([[UIApplication sharedApplication] canOpenURL:instagramUrl]) {
@@ -85,6 +92,11 @@
     }
 }
 
+/**
+ *  Share photo link.
+ *
+ *  @param sender tapped button (share button)
+ */
 -(void)share:(id)sender {
     NSMutableArray *sharingItems = [NSMutableArray new];
     NSString *shareText = [[NSString alloc] initWithFormat:@"%@ via #anygram http://pedrolopes.net/anygram/",self.photo[@"link"] ];
@@ -95,9 +107,10 @@
     [self.controller presentViewController:activityController animated:YES completion:nil];
 }
 
-
 /**
- * Like tapped photo on Instagram
+ *  Like tapped photo on Instagram.
+ *
+ *  @param sender tapped button (like button)
  */
 -(void)like:(id)sender {
 
@@ -117,6 +130,9 @@
     [task resume];
 }
 
+/**
+ *  Display UIAlertView with confirming "like" and updated like label.
+ */
 -(void)showLikeCompletion {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Liked!" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
     [alert show];
@@ -132,7 +148,6 @@
 }
 
 #pragma mark - UIView
-
 - (instancetype)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         [self addSubview:self.usernameButton];
@@ -143,7 +158,6 @@
     }
     return self;
 }
-
 
 - (CGSize)sizeThatFits:(CGSize)size {
     return CGSizeMake(320.0f, 400.0f);
@@ -169,7 +183,6 @@
     return _avatarImageView;
 }
 
-
 - (UIButton *)usernameButton {
     if (!_usernameButton) {
         _usernameButton = [[UIButton alloc] initWithFrame:CGRectMake(47.0f, 0.0f, 200.0f, 32.0f)];
@@ -184,7 +197,6 @@
     return _usernameButton;
 }
 
-
 - (UIButton *)shareButton {
     if (!_shareButton) {
         _shareButton = [[UIButton alloc] initWithFrame:CGRectMake(260.0f, 0.0f, 64.0f, 64.0f)];
@@ -197,7 +209,6 @@
     }
     return _shareButton;
 }
-
 
 - (UIButton *)likesButton {
     if (!_likesButton) {
@@ -215,7 +226,6 @@
     }
     return _likesButton;
 }
-
 
 - (UIButton *)commentsButton {
     if (!_commentsButton) {
@@ -235,7 +245,6 @@
 }
 
 #pragma mark - Private
-
 + (UIColor *)darkTextColor {
     return [UIColor whiteColor];
 }
